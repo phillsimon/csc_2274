@@ -1,5 +1,36 @@
-p
-{
-	font-size: 35px;
-	font-style: default;
+/* Basic Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Header Navigation */
+nav {
+  background: #333;
+  padding: 1rem;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  padding: 2rem;
+}
+header {margin=left:30px;}
+/* Footer */
+footer {
+  background: #f4f4f4;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
 }
