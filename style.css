@@ -9,8 +9,10 @@ body {
 /* Header Navigation */
 nav {
   background: #333;
-  padding: 1rem;
-  text-align: center;
+    padding: 1rem;
+    text-align: center;
+    margin: auto;
+      width: 50%;
 }
 nav a {
   color: white;
@@ -23,9 +25,34 @@ nav a:hover {
 
 /* Main Content */
 main {
-  padding: 2rem;
+  padding: 100px;
+  border-width: 1px;
+  border-color:blue;
+  border-style:solid;
 }
-header {margin=left:30px;}
+
+
+
+h1.home{padding: 10px;
+  border-width: 5px;
+  border-radius: 30px;
+  border-color: blue;
+  border-style: solid;
+background-color: azure;}
+
+
+
+p{padding: 100px;
+  border-width: 1px;
+  border-color: blue;
+  border-style: solid;
+}
+
+
+header {margin-left:25%;
+margin-right: 25%;
+background-color: blanchedalmond;}
+
 /* Footer */
 footer {
   background: #f4f4f4;
