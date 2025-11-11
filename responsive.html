@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>% vs vw vs max-width + Responsive Text</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 1rem;
+        }
+
+        .example {
+            flex: 1 1 30%;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 1rem;
+            box-sizing: border-box;
+            margin: 1rem;
+            min-width: 280px;
+            background: #fafafa;
+        }
+
+        .parent {
+            width: 80%;
+            margin: 0 auto;
+            background: #f2f2f2;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        /* --- % Example --- */
+        .child-percent {
+            width: 50%;
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* --- vw Example --- */
+        .child-vw {
+            width: 50vw;
+            background-color: #2196f3;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* --- Combined Example --- */
+        .child-combo {
+            width: 70%;
+            max-width: 60vw;
+            background-color: #9c27b0;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        /* --- Media Query Example --- */
+        @media (max-width: 800px) {
+            .child-combo {
+                width: 90%;
+                max-width: none;
+                background-color: #e91e63;
+            }
+        }
+
+        /* =============================
+       Responsive Text Section
+    ============================= */
+        .text-demo {
+            background: #f9f9f9;
+            border-top: 3px solid #ccc;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .text-demo h3 {
+            margin-top: 0;
+        }
+
+        .text-box {
+            margin: 1rem auto;
+            max-width: 600px;
+            padding: 1rem;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .text-percent {
+            background: #4caf50;
+            font-size: 120%;
+            /* relative to parent’s font size */
+        }
+
+        .text-vw {
+            background: #2196f3;
+            font-size: 3vw;
+            /* scales with viewport width */
+        }
+
+        .text-clamp {
+            background: #9c27b0;
+            font-size: clamp(rem, 2vw, 2rem);
+            /* never smaller than 1rem, never larger than 2rem, scales in between */
+        }
+
+        @media (max-width: 600px) {
+            .text-clamp {
+                background: #e91e63;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>% vs vw vs max-width (and Media Query)</h2>
+
+    <div class="container">
+        <!-- Percent Example -->
+        <div class="example">
+            <h3>Using <code>%</code> Width</h3>
+            <div class="parent">
+                <div class="child-percent">
+                    width: 50%;
+                </div>
+            </div>
+            <p><strong>Behavior:</strong> Green box is 50% of its parent container.
+                Fully depends on the gray box size.</p>
+        </div>
+
+        <!-- Viewport Example -->
+        <div class="example">
+            <h3>Using <code>vw</code> Width</h3>
+            <div class="parent">
+                <div class="child-vw">
+                    width: 50vw;
+                </div>
+            </div>
+            <p><strong>Behavior:</strong> Blue box is 50% of the full browser width,
+                ignoring the gray parent’s width.</p>
+        </div>
+
+        <!-- Combined Example -->
+        <div class="example">
+            <h3>Using <code>%</code> + <code>max-width (vw)</code></h3>
+            <div class="parent">
+                <div class="child-combo">
+                    width: 70%; max-width: 60vw;
+                </div>
+            </div>
+            <p><strong>Behavior:</strong> Purple box grows with its parent (70%)
+                but never exceeds 60% of the viewport width.
+                On screens under 800px, it turns pink and expands to 90%.</p>
+        </div>
+    </div>
+
+    <!-- =========================
+           Responsive Text Section
+      ========================= -->
+    <div class="text-demo">
+        <h2>Responsive Text Examples</h2>
+        <p>These examples show how text can scale using <code>%</code>, <code>vw</code>, or <code>clamp()</code>.</p>
+    
+        <!-- Percent Example -->
+        <div class="text-parent" style="font-size: px; background: #e0e0e0; padding: 1rem; border-radius: 6px;">
+            <p><strong>Parent container font-size:</strong> 16px</p>
+            <div class="text-box text-percent">
+                <h3>Text using <code>font-size: 120%</code></h3>
+                <p>This text is 120% of the parent’s 16px font size = 19.2px.
+                    If we change the parent font-size (try 20px or 14px), the text adjusts automatically.</p>
+            </div>
+        </div>
+    
+        <!-- Viewport Example -->
+        <div class="text-box text-vw">
+            <h3>Text using <code>font-size: 3vw</code></h3>
+            <p>This text scales directly with the browser’s width.
+                Resize the window and watch it grow and shrink — useful for headlines, but can get tiny on phones.</p>
+        </div>
+    
+        <!-- Clamp Example -->
+        <div class="text-box text-clamp">
+            <h3>Text using <code>font-size: clamp(1rem, 2vw, 2rem)</code></h3>
+            <p>This balances flexibility and readability.
+                The text grows with the screen but never smaller than 1rem or larger than 2rem.
+                On smaller screens (under 600px), it turns pink.</p>
+        </div>
+    </div>
+</body>
+
+</html>

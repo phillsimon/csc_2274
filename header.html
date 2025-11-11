@@ -1,4 +1,32 @@
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-</nav>
+<header class="site-header">
+  <div class="brand">
+    <!-- Option A: Text 
+    Phill's photography -->
+    <!-- Option B: Image -->
+    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg">
+  </div>
+
+  <button class="hamburger" id="navToggle" <!-- [L112] -->
+
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+
+  <nav class="main-nav">
+    <ul class="menu menu--top">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li class="has-dropdown"><a href="#">Services ▾</a>
+        <ul class="menu menu--sub">
+          <li><a href="#">Studio</a></li>
+          <li><a href="#">Location</a></li>
+          <li><a href="#">Event</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+     
+    </ul>
+  </nav>
+</header>

@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>About | Student Site</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+    <meta charset="UTF-8">
+    <title>Page tiutle goes here</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <meta description="About Phillip Simon's career as a photographer" </head>
+
 <body>
-  <!-- Common Header -->
-  <div id="header"></div>
+    <!-- Common header -->
+    <div id="header"></div>
 
-  <!-- Page Content -->
-  <main>
-    <h1>About This Site</h1>
-    <p>This is the about page. Notice the header and footer are the same as on the homepage.</p>
-  </main>
+    <!-- Page content-->
 
-  <!-- Common Footer -->
-  <div id="footer"></div>
+    <main>
+        <h1>About Phillip Simon</h1>
+        <p>Phillip has always been a photographer. He fulfilled his childhood fantasy of using fancy cameras when he got his first
+        35 mm film camera at the age of 13. As a printmaking major at the University of the Arts, Phill learned and practiced
+        the art of graphic arts, combining drawing and photography with traditional printmaking techniques. In 1980, during
+        graduate school at the University of Massachusetts, Dartmouth, he began experimenting with multi-image techniques to
+        marry image and sound to express ideas.</p>
+        <p>Phillip Simon works as an interactive media producer, program designer, and content strategist. He teaches at Quinnipiac
+        University in Hamden, Connecticut, in the Interactive Media Master’s Program in the School of Communications and served
+        as its director from 2009 until 2022.</p>
 
-  <script>
-    async function loadHTML(id, file) {
-      const el = document.getElementById(id);
-      const resp = await fetch(file);
-      el.innerHTML = await resp.text();
-    }
-    loadHTML("header", "header.html");
-    loadHTML("footer", "footer.html");
-  </script>
+    </main>
+
+    <!-- Common footer -->
+    <div id="footer"></div>
+
+   
+
 </body>
+
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Page title goes here</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <meta name="description" content="page description here">
+</head>
+ <script>
+            function sayHello() {
+                const namex = document.getElementById("namex").value; // get what user typed
+                if (namex) {
+                    alert("Hello, " + namex + "!");
+                } else {
+                    alert("Hello, World!");
+                }
+            }
+        </script>
+<body>
+    <!-- Common header -->
+    <div id="header"></div>
+
+    <!-- Page content-->
+    <main>
+        <h1>JavaScript Greeting 2</h1>
+
+        <label for="namex">Enter your name:</label>
+        <input type="text" id="namex">
+        <button onclick="sayHello()">Say Hello</button>
+
+       
+    </main>
+
+    <!-- Common footer -->
+    <div id="footer"></div>
+
+
+
+</body>
+
+</html>
