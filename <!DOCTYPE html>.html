@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine Demo</title>
+
+    <!-- Alpine.js from CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+            padding: 2rem;
+        }
+
+        .dark {
+            background: #111;
+            color: #eee;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+
+<body x-data="{ darkMode: false }" :class="darkMode ? 'dark' : ''">
+
+    <h1>Alpine.js Demo: Light/Dark Mode</h1>
+
+    <button class="btn" @click="darkMode = !darkMode">
+        Toggle Dark Mode
+    </button>
+
+</body>
+
+</html>

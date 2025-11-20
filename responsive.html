@@ -10,6 +10,7 @@
             font-family: sans-serif;
             margin: 0;
             padding: 0;
+            font-size: 12px;
         }
 
         h2 {
@@ -22,6 +23,7 @@
             flex-wrap: wrap;
             justify-content: space-around;
             padding: 1rem;
+        
         }
 
         .example {
@@ -41,11 +43,12 @@
             background: #f2f2f2;
             padding: 1rem;
             border-radius: 6px;
+           
         }
 
         /* --- % Example --- */
         .child-percent {
-            width: 50%;
+            width: 200px;
             background-color: #4caf50;
             color: white;
             padding: 1rem;
@@ -54,11 +57,12 @@
 
         /* --- vw Example --- */
         .child-vw {
-            width: 50vw;
+            width: 10vw;
             background-color: #2196f3;
             color: white;
             padding: 1rem;
             text-align: center;
+           
         }
 
         /* --- Combined Example --- */
@@ -105,19 +109,19 @@
 
         .text-percent {
             background: #4caf50;
-            font-size: 120%;
+            font-size: 75%;
             /* relative to parent’s font size */
         }
 
         .text-vw {
             background: #2196f3;
-            font-size: 3vw;
+            font-size: 2vw;
             /* scales with viewport width */
         }
 
         .text-clamp {
             background: #9c27b0;
-            font-size: clamp(rem, 2vw, 2rem);
+            font-size: clamp(1rem, 2vw, 2rem);
             /* never smaller than 1rem, never larger than 2rem, scales in between */
         }
 
@@ -138,7 +142,7 @@
             <h3>Using <code>%</code> Width</h3>
             <div class="parent">
                 <div class="child-percent">
-                    width: 50%;
+                    width:(a percentage);
                 </div>
             </div>
             <p><strong>Behavior:</strong> Green box is 50% of its parent container.
@@ -150,7 +154,7 @@
             <h3>Using <code>vw</code> Width</h3>
             <div class="parent">
                 <div class="child-vw">
-                    width: 50vw;
+                    width: a  number and "vw";
                 </div>
             </div>
             <p><strong>Behavior:</strong> Blue box is 50% of the full browser width,
@@ -182,7 +186,7 @@
         <div class="text-parent" style="font-size: px; background: #e0e0e0; padding: 1rem; border-radius: 6px;">
             <p><strong>Parent container font-size:</strong> 16px</p>
             <div class="text-box text-percent">
-                <h3>Text using <code>font-size: 120%</code></h3>
+                <h3>Text using <code>font-size: a percentage</code></h3>
                 <p>This text is 120% of the parent’s 16px font size = 19.2px.
                     If we change the parent font-size (try 20px or 14px), the text adjusts automatically.</p>
             </div>
@@ -206,3 +210,105 @@
 </body>
 
 </html>
+
+
+
+
+
+
+/* screens less than 758 */
+@media only screen and (min-width: 768px) {
+
+body {
+background-color: rgb(153, 207, 158);
+}
+}
+
+
+@media only screen and (min-width: 480px) {
+
+.hamburger {
+display: none;
+}
+}
+
+
+@media only screen and (max-width: 768px) {
+
+body {
+background-color: rgb(206, 207, 238);
+}
+h1{color:red}
+
+.main-nav {
+display: none;
+}
+
+.menu {
+grid-auto-flow: column;
+gap: 1rem;
+align-items: center;
+display: none;
+}
+
+.hamburger {
+/* [L28] */
+appearance: none;
+background: transparent;
+border: 0;
+padding: 0.5rem;
+display: inline-flex;
+align-items: center;
+gap: .5rem;
+cursor: pointer;
+width: 50px;
+}
+
+.hamburger:focus-visible {
+outline: 2px solid #3b82f6;
+/* focus ring */
+outline-offset: 2px;
+}
+
+.hamburger-box {
+/* [L42] */
+width: 24px;
+height: 18px;
+position: relative;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+position: absolute;
+left: 0;
+right: 0;
+height: 4px;
+background: #111827;
+border-radius: 2px;
+content: "";
+display: block;
+transition: transform .2s ease, opacity .2s ease;
+}
+
+.hamburger-inner {
+top: 8px;
+}
+
+/* middle line */
+.hamburger-inner::before {
+top: -8px;
+}
+
+/* top line */
+.hamburger-inner::after {
+top: 8px;
+}
+
+}
+
+/* phone screens less than 360px */
+@media only screen and (max-width: 360px){
+
+h1 {color:blue}
+}
