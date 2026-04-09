@@ -1,118 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <title>The Photogear Phillip Simon uses</title>
-      <link rel="stylesheet" href="styles.css">
-      <script src="script.js" defer></script>
-      <meta description = "Phillip Simon shows and describes the equipment he uses for his photography"
-  </head>
+<!doctype html> 
+<html lang="en"> 
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Enables responsive layout -->
 
-  <body>
-<!-- Common header -->
-<div id="header"></div>
+<title>Site page template</title>
 
-<!-- Page content-->
+<link rel="stylesheet" href="css/styles.css" /> 
 
-<div class="hero">
-    <div class="title">
-    <h1>My Photography Adventure</h1>
-    <h2>I did not push the shutter with color in mind</p>
-    </div>
-</div>
+<style>
+  .hero-image
+{background-image: url("/assets/italy1.png");
+}
+</style>
 
-<!-- Page content-->
-<main>
+<script src="js/includes.js" defer></script>
 
-    <h2>Introduction</h2>
+</head>
 
-    <p> Tri-X 400. That was the film I used before I started to photograph using digital cameras. Anyone old enough to have been
-    doing 35mm film photography can tell you that Tri-X was a popular black and white negative film made by Kodak. I shot
-    with black and white because B&W film costs less, and I could develop and make prints myself without the higher cost and
-    technical challenges of processing and printing in color. So I never photographed with color as motivation. </p>
+<body>
     
-    <p>It was always composition, texture, and lighting that mattered. Decades of using black and white film trained me to look
-    for images in monochrome. I loved the aesthetic, and I was inspired by Eugene Smith, Bruce Davidson, Roy DeCarava, and
-    Danny Lyon. When using film, I did not push the shutter with color in mind.</p>
+<!-- Header id will be left on the page so js will know where to drop in the header.html file -->
+    <header id="site-header"></header>
 
-<h2>Flexbox Example</h2>
+
+    
+<div class="hero-image">
+
+        <h1>My travel portfolio</h1>
+    
+
+</div>
+<main class="container">
+
+   
+
+   </div>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel elit tempus, rhoncus sem ac, imperdiet felis.
+Mauris vestibulum, ex id imperdiet varius, magna mi ultrices velit, malesuada dignissim elit leo eu dui. Vestibulum
+molestie eros non eros tempus dictum. Etiam nec ipsum lacus. Nulla auctor aliquet mattis. Morbi et auctor leo. Aenean
+facilisis ut ex ac dictum. Maecenas quis tempus tellus, eu convallis lorem. Etiam tortor nunc, iaculis ac lacinia non,
+iaculis sit amet nulla. Nam euismod vestibulum diam, et pretium nibh condimentum a. Suspendisse potenti. Etiam imperdiet
+erat erat, sed elementum ante ornare ac. Nullam mattis sed massa id congue.
+</p> 
+
+   <h2>Click on a card to see more photos</h2> <!-- Primary page heading -->
 
 <section class="flex-demo">
 
-  <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
-    <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
-  </div>
-  <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
-    <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
-  </div>
-  <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
-    <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
-  </div>
- </section>
+<div class="card">
 
-<h2>Grid Example</h2>
+    <img src="assets/banff.jpg" alt="photo of ... " width="100%">
 
-<section class="grid-demo">
-  <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
-    <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
+    <h4>Banff</h4>
+
+    <p>Morbi tellus eros, sagittis ac odio sit amet, semper placerat dui. Curabitur sodales arcu in sem dapibus mollis.</p>
+
+    <button>Show photos</button>
+
   </div>
 
   <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
-    <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
+
+    <img src="assets/california.jpg" alt="photo of ... " width="100%">
+
+    <h4>California</h4>
+
+    <p>Morbi tellus eros, sagittis ac odio sit amet, semper placerat dui. Curabitur sodales arcu in sem dapibus mollis.</p>
+
+    <button>Show photos</button>
+
+  </div>
+
+
+  <div class="card">
+
+    <img src="assets/ireland1.jpg" alt="photo of ... " width="100%">
+
+    <h4>Ireland</h4>
+
+    <p>Morbi tellus eros, sagittis ac odio sit amet, semper placerat dui. Curabitur sodales arcu in sem dapibus mollis.</p>
+
+    <button>Show photos</button>
+
   </div>
 
   <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
+
+    <img src="assets/israel.jpg" alt="photo of ... " width="100%">
+
     <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
+
+    <p>Morbi tellus eros, sagittis ac odio sit amet, semper placerat dui. Curabitur sodales arcu in sem dapibus mollis.</p>
+
+    <button>Show photos</button>
+
   </div>
 
   <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
+
+    <img src="assets/italy.jpg" alt="photo of ... " width="100%">
+
     <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
+
+    <p>Morbi tellus eros, sagittis ac odio sit amet, semper placerat dui. Curabitur sodales arcu in sem dapibus mollis.</p>
+
+    <button>Show photos</button>
+
   </div>
 
   <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
-    <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
-  </div>
 
-  <div class="card">
-    <img src="/images/cameras pexels-fujifilmusa-3497126.jpg" alt="photo of cameras" width="100%">
+    <img src="assets/crete.jpg" alt="photo of ... " width="100%">
+
     <h4>Title</h4>
-    <p>description</p>
-    <button>More info</button>
-  </div>
+
+    <p>Morbi tellus eros, sagittis ac odio sit amet, semper placerat dui. Curabitur sodales arcu in sem dapibus mollis.</p>
+
+    <button>Show photos</button>
 
   </section>
 
+  
+
+
+
+
+
+<h2>Camers Used</h2>
+
+<ul class="body-list">
+    <li>Fugi XT4</li>
+    <li>iPhone 16</li>
+    <li>Lumix XT5</li>
+</ul>
+
+
+
+
 </main>
 
-<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1KfpVBtfJiGSpY2kVaBwB2n4hea3VGW0&ehbc=2E312F&noprof=1"
-  width="100%" height=500px></iframe>
-<!-- Common footer -->
-<div id="footer"></div>
 
 
+<!-- Footer placeholder (if you're injecting footer too) -->
+  <footer id="site-footer" class="site-footer"></footer>
 
-  </body>
+  
+
+</body>
+
+</html>

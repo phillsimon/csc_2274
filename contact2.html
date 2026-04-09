@@ -1,0 +1,74 @@
+<!doctype html> 
+<html lang="en"> 
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Enables responsive layout -->
+
+<title>Site page template</title>
+
+<link rel="stylesheet" href="css/styles.css" /> 
+
+<style>
+  .hero-image
+{background-image: url("/assets/italy1.png");
+}
+</style>
+
+<script src="js/includes.js" defer></script>
+
+</head>
+
+<body>
+    
+<!-- Header id will be left on the page so js will know where to drop in the header.html file -->
+    <header id="site-header"></header>
+
+
+    
+<div class="hero-image">
+
+        <h1>Contact Me</h1>
+    
+
+</div>
+<main class="container"; min-height:500px; color:black;">
+
+<style>label {color:black;}</style>
+
+ <form action="https://formspree.io/f/xqayjrnd" method="POST" id="contact-form">
+
+<label for="first name">First name</label>
+    <input type="text" id="first-name" name="first-name" placeholder="first name" >
+
+<label for="last name">Last name</label>
+  <input type="text" id="last-name" name="last-name" placeholder="last name"  >
+
+<label for="email">Email</label>
+  <input type="email" id="email" name="email"
+  >
+
+<label for="phone">Phone</label>
+   <input type="tel" id="phone" name="phone" 123-446-7890 form" placeholder="123-446-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+<label for="messge">Message</label>
+<textarea id="message" name="message" rows="8" cols="60" placeholder="Type your message here"></textarea>
+
+
+<button type="submit">Submit</button>
+
+ </form>
+
+
+
+</main>
+
+
+
+<!-- Footer placeholder (if you're injecting footer too) -->
+  <footer id="site-footer" class="site-footer"></footer>
+
+  
+
+</body>
+
+</html>

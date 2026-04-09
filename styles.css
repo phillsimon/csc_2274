@@ -1,569 +1,413 @@
-/* ========== Variables ========== */
-:root {
-    --menu-bg: #3498db;
-    --menu-bg-sub: #98a5ae;
-    --menu-hover: #1f3645;
-    --menu-text: #ffffff;
-    --menu-padding: 10px 14px;
-    --menu-radius: 4px;
-    --menu-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    --menu-gap: 4px;
-    --button-radius: 20px;
-    --font-family: 'Trebuchet MS', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    --font-size: 18px;
-    --font-button-size: 14px;
-    --font-button: Trebuchet MS',' Lucida Sans', ' Lucida Sans Regular', ' Lucida Grande', ' Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   
+body{ font-family: Garamond;
+  background-color:rgb(0, 0, 0);
+  margin:0px;
+} 
+
+ a {text-decoration-line:none;
 
 }
-/* Global box-sizing to keep widths predictable */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+
+/* navigation and header styles */
+
+a.logo {color:white;
+text-decoration-line:;
+text-transform: uppercase;
+font-family:Oswald;
+font-weight: 900;
+font-size:25px;
+margin-left:25px;
+margin-top:15px}
+
+.header-container {
+position:fixed;
+width:100%;
+background-color:rgb(60, 60, 60);
+margin-top:-25px;
+padding-top:40px;
+
+z-index: 99;
+top: 0;
+box-shadow: 0px 10px 0px rgb(60, 60, 60);
+display:flex;
+justify-content: space-between;
 }
 
-.dark {
-    background: #111;
-    color: #eee;
+ul.nav-list {
+  display:flex;
+  flex-direction:row;
+    border: 0px solid rgb(23, 135, 47); 
+        margin-top:25px;
+        padding: 10px 10px;
+    }   
+
+ul.nav-list li { 
+  
+margin-right:20px;list-style-type: none;  
+color: black;
+border-radius:20px;
 }
 
-.btn {
-    padding: 10px 20px;
-    background: #3498db;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
+ul.nav-list li a{ 
+padding:12px;
+color: rgb(255, 255, 255);
+font-size:16px;
 }
 
+.logo{text-transform: uppercase;
+color:white;}
 
-body {
-    background-color: rgb(116, 205, 205);
-    margin: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ul.nav-list .sub-menu {
+background-color:rgb(71, 49, 102);
+display:none;}
+
+ul.nav-list li a:hover{ 
+background-color:rgb(143, 34, 34);
+border-radius:20px;}
+
+ul.nav-list li a:hover{ 
+background-color:rgb(83, 20, 50);
+border-radius:20px;
+width:25%;
+color:white;}
+
+
+ul.sub-menu li{color:red;
 }
 
-a {
-    color: white;
+/* END navigation and header styles */
+
+/* footer styles */
+.footer-container {margin-left:10%;padding-top:50px}
+.site-footer{
+background-color:gray;
+min-height:150px;}
+/* end footer styles */
+
+.hero-image
+{background-image: url("/assets/italy1.png");
+min-height: 400px;
+background-size: cover;
+width:100%;
+display: flex;
+align-items: flex-end;
+margin-top:10vh;
 }
 
-a:visited {
-    color: white;
+.hero-image h1{
+color: white;
+font-size: 50px;
+width:100%;
+z-index: 1;
+padding:20px;
+background-color: rgba(0, 0, 0,0.7);
+margin-bottom: 0;
+text-transform: uppercase;
+font-family:Oswald;
+font-weight: 900;
+width: 100%; margin: 0 auto; padding: 20px 20px 20px 5%; max-width:100%;
 }
 
-a:hover {
-    color: #6F86FF;
+ul.nav-list li {font-family:Tahoma;padding-bottom: 5px;font-size: 14px;
 }
 
-.title h1 {
-    font-size:60px;
-    
+h1,h2,h3,h4,h5,h6, label{color:rgb(185, 185, 185); font-family:Tahoma ;
+
+border: 0px solid rgb(206, 206, 206); 
 }
 
-.title>p {
-    font-size: 25px;
+p {line-height: 1.4;font-size: 22px;
+color:white;
+font-family:Verdana;
+font-weight:normal;
+font-size: 18px;}
+
+ul, ol {
+    padding: 10px; list-style-type: square;
+border: 0px solid rgb(206, 206, 206); 
+width: 400px;
 }
 
+ul li {padding-bottom: 5px; border: 0px solid rgb(206, 206, 206); 
+font-size:20px}
 
-/* Hero banner without background image */
-.hero {
-    position: relative;
-    /* establishes positioning context */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
-    padding: 0;
-    height: 400px;
+main.container 
+
+{width: 100%; margin: 0 auto; padding: 20px; max-width:90%}
+
+.body-list li{
+  
+  font-family:Tahoma;
+  color:color:rgb(185, 185, 185)}
+
+/* flex and grid styles for cards */
+
+.flex-demo{
+  
+ display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 10px;
+  align-items: flex-start;
 }
-
-/* Hero banner background image */
-.hero {
-    background-image: url('images/hero-pexels-pixabay-414781.jpg');
-    
+.flex-demo .card{
+  background: rgb(54, 54, 54);
+  color: white;
+  flex-grow:1;
+  flex-shrink:0;
+  flex-basis:25%;
+  box-sizing: border-box;
+  padding:15px;
+  
 }
-
-.title {
+ 
+.card img{
+    border-radius: 8px;
+    height: 200px;
     width: 100%;
-    padding-right: 5%;
-    padding-left: 5%;
-    position: absolute;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.574);
-    bottom: 0;
-
+    object-fit: cover;
 }
 
+.card h4 {
+color:white;
+ margin: 12px 0 6px;
+ font-size: 22px;
 
-
-p {width:100%}
-
-
-img {
-    max-width: 100%;
-    height: auto;
-    background-color: rgb(247, 247, 247);
-    /* remove the float so it doesn't affect layout globally */
-    /* float: right;  <-- delete this unless you really need it somewhere specific */
-    margin-left: 0;
-    /* was 'margin-left 0; px;' */
-    padding: 5px;
-    border: 1px solid rgb(37, 22, 22);
-    border-radius: 5px;
 }
+ .card p {
 
+font-size:14px
 
-/* Fluid container with max width */
-main {
-    max-width: 100vw;
-    /* keeps text line length comfortable */
-    margin: 0px auto;
-    /* centers on screen, adds top/bottom spacing */
-    padding: 2% 3% 3% 3% ;
-}
+ }
+.card button {
+ margin-top: 7px;
+ padding: 10px 12px;
+ border: 0;
+ border-radius: 8px;
+ cursor: pointer;
+ font-family: Georgia, serif;
 
-
-
-/* Flex and grid */
-.flex-demo {
-    display: flex;
-    flex-flow: row;
-    flex-wrap: wrap;
-    gap: 30px;
-    color: white;
-    padding: 10px;
-    
 }
 
 .grid-demo {
-    display: grid;
-    grid-template-columns: auto auto auto ;
-    gap: 10px;
-    margin-top: 20px;
-        color: white;
-        padding: 20px;
-    
+ display: grid;
+ grid-template-columns: 33% 33%;
+ gap: 20px;
+
 }
 
-.card {
-    display: flex;
-    flex-flow: column;
-    border: 4px solid black;
-    padding: 10px;
-    background-color: rgb(67, 43, 43);
-    width:25vw;
-    
+.grid-demo .card{
+  background: rgb(131, 74, 74);
+  border: 2px dotted green;
+  color: white;
+  flex: 0 0 250px;   
+  box-sizing: border-box;
+  padding:15px;
 }
 
-.card>img {
-    width: 100px;
-    background-color: rgb(237, 231, 231);
-    margin-left: 0px;
-    margin-right: 0px;
-    padding: 5px;
-    border: solid rgb(37, 22, 22) 0px;
-    border-radius: 3px;
+/* end of flex and grid styles for cards */
+
+
+/* form styles */
+
+form {
+border: solid 1px black;
+background-color:rgb(209, 209, 209);
+width: 410px;        
+  margin: 50px auto; 
+  padding:30px
 }
 
-.card>button {
-    
-    border-radius: var(--button-radius);
-    font-size: var(--font-button-size);
-    margin-top: 0px;
-    background: rgb(173, 171, 180);
-    color: rgb(0, 0, 0);
-    padding: 0.5rem;
-    border: none;
-    font-family: 'Lucida Sans',
-        'Lucida Sans Regular',
-        'Lucida Grande',
-        'Lucida Sans Unicode',
-        Geneva,
-        Verdana,
-        sans-serif;
-}
+textarea {width:400px;}
 
-.card>p {
-    font-size: 14px;
-    font-weight: 900;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-color:rgb(253, 253, 253);
-}
+button {
 
-.card>h4 {
-    font-size: 35px;
-    margin-bottom: 0px;
-    padding: 0px;
+  display: block;
+  margin-top: 20px;
+  padding: 10px 10px;
+  width: 200px;
+  background-color: #D1B084;
+  color: rgb(14, 3, 3);
+  font-weight:bold;
+ border: solid 1px black;
+  cursor: pointer;
+  font-size:1em;
+  box-shadow:2px 2px 10px 1px rgb(126, 126, 126);
+  border-radius: 25px 0px 25px 0px;
+
 }
 
 
-ul {
-    list-style: none;
+button:hover {
+ 
+  background-color: #5c462a;
+  color: rgb(225, 225, 225);
+  font-weight:bold;
+ border: solid 1px black;
+
+   }
+
+label {
+
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  padding-bottom:5px;
+
 }
 
-/* Header */
-
-.site-header {
-    background: var(--menu-bg);
-    color: var(--menu-text);
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid black;
-    width: 100%;
-    /* was 100vw */
-    overflow-x: clip;
-    /* optional: guards against tiny sub-pixel overflow */
-    height:100px;
-    position: fixed;
-        /*** makes header sticky ***/
-        top: 0;
-    z-index: 9;
-box-shadow: 0 6px 10px rgb(0, 0, 0); /*** adds shadow ***/
+input {
+  width: 400px;
+  height: 25px;
+  font-size:18px;
+  box-shadow: 1px 1px rgba(160, 160, 160, 0.5) inset;
+  border: solid 1px rgb(127, 127, 127);
 }
 
-.brand {
-    font-size: 1.5rem;
-    color: var(--menu-text);
-    display: flex;
-    /* align text or image */
-    align-items: center;
-    gap: 8px;
-    /* spacing between image and text if both are used */
+input::placeholder {
+  color: rgb(12, 12, 12);
+  opacity: 0.3;
+  font-size:14px;
+  padding-left:20px;
 }
 
-.brand img {
-    height: 40px;
-    /* adjust logo size */
-    width: auto;
-    /* keep proportions */
-    display: block;
-    float: none;
+textarea::placeholder {
+  color: rgb(12, 12, 12);
+  opacity: 0.3;
+  font-size:14px;
+  padding-left:20px;
+ 
 }
 
-/* Common link styles */
-.main-nav a {
-    display: block;
-    color: var(--menu-text);
-    text-decoration: none;
-    padding: var(--menu-padding);
-    border-radius: var(--menu-radius);
-    white-space: nowrap;
-    font-size: 18px;
+input:invalid {
+  border: red solid 3px;
 }
 
-.main-nav a:hover,
-.main-nav a:focus {
-    background: var(--menu-hover);
-}
+input:focus,textarea:focus  {
+  outline: none;
+  border-color: #145816;
+border-width:3px;}
 
-/* ========== TOP-LEVEL ONLY ========== */
-.menu--top {
-    display: flex;
-    /* flex ONLY on top-level menu */
-    gap: var(--menu-gap);
-    align-items: center;
-    flex-wrap: wrap;
-}
 
-.menu--top>li {
-    position: relative;
-}
+/* HAMBURGER BUTTON start */
 
-/* ========== SUBMENU ========== */
-.menu--sub {
-    display: none !important;
-    position: absolute;
-    top: 100%;
-    left: 20px;
-    /* was 'left: 20;' */
-    min-width: 100%;
-    background: var(--menu-bg-sub);
-    border-radius: var(--menu-radius);
-    box-shadow: var(--menu-shadow);
-    
-}
+/* ============================================
+   HAMBURGER BUTTON
+   ============================================ */
 
-.menu--sub>li>a {
-    /* vertical stacking guaranteed */
-    display: block !important;
-    margin-right: 20px;
-}
-
-/* Show submenu on hover OR keyboard focus within */
-.has-dropdown:hover>.menu--sub,
-.has-dropdown:focus-within>.menu--sub {
-    display: block !important;
-}
-
-.off-screen-menu {
+/* Hide the checkbox */
+#nav-toggle {
     display: none;
 }
 
-/*** added to  ham-menu  text off desktop ***/
-
-@media only screen and (max-width: 650px){
-/* off-screen-menu */
-
-
-/* ham menu */
-    .ham-menu {
-        height: 50px;
-        width: 40px;
-        margin-left: auto;
-        position: relative;
-
-        /*** keeps ham bars on top ***/
-    }
-
-    .ham-menu span {
-        height: 2px;
-        width: 100%;
-        background-color: #000000;
-        border-radius: 25px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        transition: .3s ease;
-
-    }
-
-    .ham-menu span:nth-child(1) {
-        top: 35%;
-    }
-
-    .ham-menu span:nth-child(3) {
-        top: 65%;
-    }
-
-    .ham-menu.active span {
-        background-color: white;
-    }
-
-    .ham-menu.active span:nth-child(1) {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-        height: 4px;
-        /* thicker lines */
-        width: 80%;
-        /* make the X longer */
-    }
-
-    .ham-menu.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .ham-menu.active span:nth-child(3) {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(-45deg);
-        height: 4px;
-        /* thicker lines */
-        width: 80%;
-        /* make the X longer */
-    }
-
-
-.off-screen-menu {
-    background-color: rgba(96, 18, 74, 0.884);
-    height:50vh;
-    width: 100vw;
-    max-width: 100%;
-    position: fixed;
-    top: 0;
-    right: -100vw;
-    display: flex;
+.hamburger {
+    display: none;
     flex-direction: column;
-    align-items: left;
-    justify-content: left;
-    text-align: left;
-    font-size: 3rem;
-    transition: .3s ease;
-    font-size: 18px;
-}
-
-/*** slide down mobile menu */ 
-.off-screen-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 50vh;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.617), rgba(230, 230, 207, 0.29));
-    display: flex;
-    flex-direction: column;
-    transform: translateY(-105%);
-    /* start hidden above screen */
-    transition: transform 0.35s ease;
-    /* smooth animation */ 
-    box-shadow: 1px 1px 2px black,
-        0 0 25px blue,
-        0 0 5px darkblue;
-} 
-
-nav.main-nav {display:none;} /*** added to keep main horz menu off desktop ***/
-
-
-
-.off-screen-menu.active {
-    right: 0;
-}
-
-.off-screen-menu.active {
-    transform: translateY(0);
-    /* slide into view */
-}
-
-.off-screen-menu.active ul { /*** added to push menu to top ***/
-   
-    
-}
-
-/* nav */
-nav {
-    padding: 1rem;
-    display: flex;
-    background-color: transparent; /*** makes ham container transparent ***/
-}
-
-
-
-
-}
-/* Form sytles */
-
-form {
-    width: 500px;
-    margin: auto;
-    border: 1px solid rgb(195, 181, 181);
-    background-color: antiquewhite;
-    padding: 25px 0px 25px 25px;
-}
-
-select {
-    padding: 10px;
-    font-size: var(--font-size);
-    font-family: var(--font-family);
-    box-shadow: 5px 3px 3px rgb(27, 20, 20);
-}
-
-
-/* General form label style */
-label {
-    font-weight: bold;
-    padding-bottom: 5px;
-    margin-top: 10px;
-}
-
-/* Only labels for text inputs and textarea should be block */
-label[for],
-textarea+label {
-    display: block;
-}
-
-input{
-    padding:5px;
-}
-
-/* Radio and checkbox labels inline with the control */
-input[type="radio"],
-input[type="checkbox"] {
-    display: inline-block;
-    font-weight: normal;
-    /* lighter than main labels */
-    margin-right: 15px;
-    padding: 2px 6px;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
     cursor: pointer;
+    margin-right: 25px;
 }
 
-/* Make sure radio/checkbox don't stretch */
-input[type="radio"],
-input[type="checkbox"] {
-    width: auto;
-    height: auto;
-    margin-right: 6px;
-    vertical-align: middle;
-}
-
-fieldset{margin-top:25px;
-margin-bottom:20px;
-width:90%;
-border-color: #00b51e;
-box-shadow: 5px 3px 3px rgb(27, 20, 20);
-}
-
-fieldset.different{
-    margin-top: 25px;
-    margin-bottom: 20px;
-    width: 90%;
-    border-color: #230a28;
-    box-shadow: none;
-}
-
-
-
-label {
-    margin-right: 15px;
-    /* space between each option */
-}
-
-textarea {
-    width: 90%;
-}
-
-#phone {
-    width: 100px;
-}
-
-button {
+.hamburger span {
     display: block;
-    margin-top: 10px;
-    padding: 10px 10px 10px 10px;
-    width: 75%;
-    background-color: #43505d;
-    color: white;
-    border: none;
-    cursor: pointer; 
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- X state: when checkbox is checked --- */
+
+#nav-toggle:checked ~ .hamburger span:nth-child(2) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: scaleX(0);
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(4) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* ============================================
+   MEDIA QUERY — MOBILE (max-width: 768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+
+  .hero-image
+    {background-image: url("/assets/italy1.png");
+    margin-top:6vh;
+    }
+
+  .hero-image h1{
+
+    font-size: 50px;
+    width:100%;
+    padding:20px 20px 20px 10%;
+    background-color: rgba(0, 0, 0,0.7);
+    argin-bottom: 0;
+    font-weight: 900;
+  }
+
+    main.container {width: 80%; margin: 0 auto; padding: 20px; max-width:1100px}
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide nav by default on mobile */
+    nav {
+        display: none;
+        width: 100%;
+    }
+
+    /* Show nav when checkbox is checked */
+    #nav-toggle:checked ~ nav {
+        display: block;
+    }
+
+    /* Stack header items */
+    .header-container {
+       flex-direction: row;
+        flex-wrap: wrap;
+        align-items: right;
+        padding-bottom: 10px; 
+    }
+
+    /* Nav takes full width below logo/hamburger row */
+    nav {
+        flex-basis: 100%;
+        width:50%;
+     
+        
+    }
+
+    /* Stack nav links vertically */
+    ul.nav-list {
+  display:flex;
+  flex-direction:column;
+  width:50%;
+   
+    }   
     
-}
 
-button:hover {
+    ul.nav-list li a {
+        display: block;
+        padding: 5px 20px;   
+    }
 
-        background-color: rgb(236, 229, 229);     
-    
-}
-
-
-
-/* footer sytles */
-
-.footer {
-    width: 100%;
-    margin-top: 50px;
-    padding: 25px;
-    background-color: #1f3645;
-    color: #ffffff
-}
-
-
-/* responsive styles */
-
-
-
-
-@media only screen and (max-width: 650px)
-
+    ul.nav-list li a:hover{ 
+    background-color:rgb(83, 20, 50);
+    border-radius:20px;
+    width:25%;
+    color:white;}
 
     
-.title h1 {
-    font-size: 34px;
 
 }
 
-
-
-
-/* close of media query for mobile*/       
-        }
+/* HAMBURGER BUTTON end */

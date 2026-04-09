@@ -1,0 +1,349 @@
+body{ font-family: Garamond;
+  background-color:rgb(0, 0, 0);
+  margin:0px;
+} 
+
+ a {text-decoration-line:none;
+
+}
+
+/* navigation and header styles */
+
+a.logo {color:white;
+text-decoration-line:;
+text-transform: uppercase;
+font-family:Oswald;
+font-weight: 900;
+font-size:25px;
+margin-left:25px;
+margin-top:15px}
+
+.header-container {
+position:fixed;
+width:100%;
+background-color:rgb(60, 60, 60);
+margin-top:-25px;
+padding-top:40px;
+
+z-index: 99;
+top: 0;
+box-shadow: 0px 10px 0px rgb(60, 60, 60);
+display:flex;
+justify-content: space-between;
+}
+
+ul.nav-list{
+    border: 0px solid rgb(23, 135, 47); 
+    display: flex; 
+    margin-right:100px;
+}
+
+ul.nav-list li { margin-right:20px;list-style-type: none;  
+
+ color: black;
+
+border-radius:20px;}
+
+
+ul.nav-list li a{ 
+padding:12px;
+color: rgb(223, 244, 231);
+font-size:16px;
+}
+
+.logo{text-transform: uppercase;
+color:white;}
+
+ul.nav-list .sub-menu {
+background-color:rgb(71, 49, 102);
+display:none;}
+
+ul.nav-list li a:hover{ 
+background-color:rgb(146, 67, 67);
+border-radius:20px;}
+
+
+ul.sub-menu li{color:red;
+}
+
+/* END navigation and header styles */
+
+/* footer styles */
+.footer-container {margin-left:10%;padding-top:50px}
+.site-footer{
+background-color:gray;
+min-height:150px;}
+/* end footer styles */
+
+.hero-image
+{background-image: url("/assets/italy1.png");
+min-height: 400px;
+background-size: cover;
+width:100%;
+display: flex;
+align-items: flex-end;
+margin-top:11vh;
+}
+
+.hero-image h1{
+color: white;
+font-size: 50px;
+width:100%;
+z-index: 1;
+padding:20px;
+background-color: rgba(0, 0, 0,0.7);
+margin-bottom: 0;
+text-transform: uppercase;
+font-family:Oswald;
+font-weight: 900;
+}
+
+ul.nav-list li {font-family:Tahoma;padding-bottom: 5px;font-size: 14px;
+}
+
+h1,h2,h3,h4,h5,h6, label{color:rgb(185, 185, 185); font-family:Tahoma ;
+
+border: 0px solid rgb(206, 206, 206); 
+;}
+
+p {line-height: 1.4;font-size: 22px;
+color:white;
+font-family:Verdana;
+font-weight:normal;
+font-size: 18px;}
+
+ul, ol {
+    padding: 10px; list-style-type: square;
+border: 0px solid rgb(206, 206, 206); 
+width: 400px;
+}
+
+ul li {padding-bottom: 5px; border: 0px solid rgb(206, 206, 206); 
+font-size:20px}
+
+main.container {width: 100%; margin: 0 auto; padding: 20px; max-width:1100px}
+
+.body-list li{
+  
+  font-family:Tahoma;
+  color:color:rgb(185, 185, 185)}
+
+/* flex and grid styles for cards */
+
+.flex-demo{
+  
+ display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 10px;
+  align-items: flex-start;
+}
+.flex-demo .card{
+  background: rgb(54, 54, 54);
+
+  color: white;
+  
+  flex-grow:0;
+  flex-shrink:0;
+  flex-basis:25%;
+  box-sizing: border-box;
+  padding:15px;
+  
+}
+ 
+.card img{
+    border-radius: 8px;
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card h4 {
+color:white;
+ margin: 12px 0 6px;
+ font-size: 22px;
+
+}
+ .card p {
+
+font-size:14px
+
+ }
+.card button {
+ margin-top: 7px;
+ padding: 10px 12px;
+ border: 0;
+ border-radius: 8px;
+ cursor: pointer;
+ font-family: Georgia, serif;
+
+}
+
+.grid-demo {
+ display: grid;
+ grid-template-columns: 33% 33%;
+ gap: 20px;
+
+}
+
+.grid-demo .card{
+  background: rgb(131, 74, 74);
+  border: 2px dotted green;
+  color: white;
+  flex: 0 0 250px;   
+  box-sizing: border-box;
+  padding:15px;
+}
+
+/* end of flex and grid styles for cards */
+
+
+/* form styles */
+
+form {
+border: solid 1px black;
+background-color:rgb(209, 209, 209);
+width: 410px;        
+  margin: 50px auto; 
+  padding:30px
+}
+
+textarea {width:400px;}
+
+button {
+
+  display: block;
+  margin-top: 20px;
+  padding: 10px 10px;
+  width: 200px;
+  background-color: #D1B084;
+  color: rgb(14, 3, 3);
+  font-weight:bold;
+ border: solid 1px black;
+  cursor: pointer;
+  font-size:1em;
+  box-shadow:2px 2px 10px 1px rgb(126, 126, 126);
+  border-radius: 25px 0px 25px 0px;
+
+}
+
+
+button:hover {
+ 
+  background-color: #5c462a;
+  color: rgb(225, 225, 225);
+  font-weight:bold;
+ border: solid 1px black;
+
+   }
+
+label {
+
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  padding-bottom:5px;
+
+}
+
+input {
+  width: 400px;
+  height: 25px;
+  font-size:18px;
+  box-shadow: 1px 1px rgba(160, 160, 160, 0.5) inset;
+  border: solid 1px rgb(127, 127, 127);
+}
+
+input::placeholder {
+  color: rgb(12, 12, 12);
+  opacity: 0.3;
+  font-size:14px;
+  padding-left:20px;
+}
+
+textarea::placeholder {
+  color: rgb(12, 12, 12);
+  opacity: 0.3;
+  font-size:14px;
+  padding-left:20px;
+ 
+}
+
+input:invalid {
+  border: red solid 3px;
+}
+
+input:focus,textarea:focus  {
+  outline: none;
+  border-color: #145816;
+border-width:3px;}
+
+
+/* HAMBURGER BUTTON start */
+
+/* Hide the checkbox itself */
+.hamburger input {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 33px;
+    height: 22px;
+    cursor: pointer;
+    margin-right: 25px;
+   
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- X state: when checkbox is checked --- */
+
+/* Rotate top line down */
+.hamburger input:checked ~ span:nth-child(2) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+/* Hide middle line */
+.hamburger input:checked ~ span:nth-child(3) {
+    opacity: 0;
+}
+
+/* Rotate bottom line up */
+.hamburger input:checked ~ span:nth-child(4) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* MEDIA QUERY — MOBILE (max-width: 768px) 
+
+max width means use this query up until the width is 768px */
+
+@media (max-width:768px) {
+
+ .hamburger {
+        display: flex;
+    }
+
+nav {
+        display: none;
+    }
+.header-container {
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+
+}
+
+}
+
+/* HAMBURGER BUTTON end */
