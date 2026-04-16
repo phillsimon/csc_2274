@@ -1,0 +1,371 @@
+<h2>Weather API Cards Project: Four-Day Plan</h2>
+
+<p>This project will be completed over four class sessions. On Day 1, students will focus on understanding JSON and getting the weather API to work in the browser without styling. On Day 2, students will style the weather cards with CSS. On Day 3, students will display an image based on weather conditions. On Day 4, students will display a wind icon based on wind speed using greater than and less than statements.</p>
+
+<h3>Project Files</h3>
+
+<p>Students should create a folder for the project with these files:</p>
+
+<ul>
+<li>weather.html</li>
+<li>weather-script.js</li>
+<li>weather-styles.css</li>
+<li>images folder for weather and wind icons</li>
+</ul>
+
+<h2>Day 1: Introduction to JSON and Displaying API Data</h2>
+
+<h3>Day 1 Focus</h3>
+
+<p>The goal for Day 1 is to introduce students to JSON as a front-end data format and help them successfully fetch weather data and display it on the page without worrying about styling yet.</p>
+
+<h3>Day 1 Learning Objectives</h3>
+
+<ul>
+<li>Understand what JSON is and why it is used in front-end web development</li>
+<li>Use fetch() to request data from a public API</li>
+<li>Read data from arrays inside a JSON response</li>
+<li>Use JavaScript to create and display weather cards</li>
+<li>Display the date, high temperature, and low temperature for each day</li>
+</ul>
+
+<h3>Day 1 In-Class Work</h3>
+
+<ol>
+<li>Introduce JSON and explain that APIs often return data as objects and arrays</li>
+<li>Show students the weather API URL and explain what it returns</li>
+<li>Open the API response and inspect the JSON structure</li>
+<li>Identify the specific weather arrays students will use: date, high temperature, and low temperature</li>
+<li>Build the JavaScript that fetches the data and loops through it</li>
+<li>Create a basic card for each day using JavaScript</li>
+<li>During class, add one additional weather node together as a group after students have date, high, and low working</li>
+</ol>
+
+<h3>Day 1 Required Output</h3>
+
+<p>By the end of Day 1, each student should have a working page that displays weather data in a simple unstyled or minimally styled format. Each card should show:</p>
+
+<ul>
+<li>Date</li>
+<li>High temperature</li>
+<li>Low temperature</li>
+<li>One additional weather item added during class</li>
+</ul>
+
+<h3>Day 1 Starter HTML</h3>
+
+<p><strong>weather.html</strong></p>
+
+<p>&lt;!DOCTYPE html&gt;<br>
+&lt;html lang=“en”&gt;<br>
+&lt;head&gt;<br>
+&lt;meta charset=“UTF-8”&gt;<br>
+&lt;meta name=“viewport” content=“width=device-width, initial-scale=1.0”&gt;<br>
+&lt;title&gt;Weather API Cards&lt;/title&gt;<br>
+&lt;link rel=“stylesheet” href=“weather-styles.css”&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;h1&gt;7-Day Weather Forecast&lt;/h1&gt;<br>
+&lt;section id=“weather-container”&gt;&lt;/section&gt;<br>
+&lt;script src=“weather-script.js”&gt;&lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</p>
+
+<h3>Day 1 Starter JavaScript</h3>
+
+<p><strong>weather-script.js</strong></p>
+
+<p>const weatherContainer = document.getElementById(“weather-container”);</p>
+
+<p>const apiUrl = “https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_gusts_10m_max,rain_sum,precipitation_sum,sunrise,sunset&current=temperature_2m,precipitation&timezone=auto&temperature_unit=fahrenheit”;</p>
+
+<p>fetch(apiUrl)<br>
+.then(response =&gt; response.json())<br>
+.then(data =&gt; {<br>
+const dates = data.daily.time;<br>
+const maxTemps = data.daily.temperature_2m_max;<br>
+const minTemps = data.daily.temperature_2m_min;<br>
+<br>
+for (let i = 0; i &lt; 7; i++) {<br>
+const card = document.createElement(“div”);<br>
+<br>
+const date = document.createElement(“h2”);<br>
+date.textContent = dates[i];<br>
+<br>
+const maxTemp = document.createElement(“p”);<br>
+maxTemp.textContent = “High: “ + maxTemps[i] + “°F”;<br>
+<br>
+const minTemp = document.createElement(“p”);<br>
+minTemp.textContent = “Low: “ + minTemps[i] + “°F”;<br>
+<br>
+card.appendChild(date);<br>
+card.appendChild(maxTemp);<br>
+card.appendChild(minTemp);<br>
+<br>
+weatherContainer.appendChild(card);<br>
+}<br>
+})<br>
+.catch(error =&gt; {<br>
+weatherContainer.innerHTML = “&lt;p&gt;Sorry, weather data could not be loaded.&lt;/p&gt;”;<br>
+console.error(“Error fetching weather data:”, error);<br>
+});</p>
+
+<h3>Day 1 Teaching Notes</h3>
+
+<p>Keep the emphasis on reading the JSON and getting the page to work. Students do not need to worry about making it look good yet. The main goal is to understand the connection between the API response and the JavaScript output on the page.</p>
+
+<h2>Day 2: Styling the Weather Cards with CSS</h2>
+
+<h3>Day 2 Focus</h3>
+
+<p>The goal for Day 2 is to take the working weather output from Day 1 and turn it into a visually organized layout using CSS.</p>
+
+<h3>Day 2 Learning Objectives</h3>
+
+<ul>
+<li>Use CSS to style repeated content consistently</li>
+<li>Apply class names to dynamically created content</li>
+<li>Use Grid or Flexbox to arrange weather cards on the page</li>
+<li>Improve spacing, readability, and visual organization</li>
+</ul>
+
+<h3>Day 2 In-Class Work</h3>
+
+<ol>
+<li>Add a class to each dynamically created card in JavaScript</li>
+<li>Create a layout for the cards using Grid or Flexbox</li>
+<li>Style the cards with background color, padding, spacing, and typography</li>
+<li>Add a hover effect or other visual improvement</li>
+<li>Discuss the separation of concerns: JavaScript creates the content and CSS controls the presentation</li>
+</ol>
+
+<h3>Day 2 JavaScript Update</h3>
+
+<p>Students should update the card creation code so each card gets a reusable class for styling.</p>
+
+<p>Add this line after creating the card:</p>
+
+<p>card.classList.add(“card”);</p>
+
+<h3>Day 2 CSS Starter</h3>
+
+<p><strong>weather-styles.css</strong></p>
+
+<p>body {<br>
+font-family: Arial, sans-serif;<br>
+margin: 0;<br>
+padding: 20px;<br>
+background-color: #f4f7fb;<br>
+color: #222;<br>
+}</p>
+
+<p>h1 {<br>
+text-align: center;<br>
+margin-bottom: 30px;<br>
+}</p>
+
+<p>#weather-container {<br>
+display: grid;<br>
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));<br>
+gap: 20px;<br>
+max-width: 1100px;<br>
+margin: 0 auto;<br>
+}</p>
+
+<p>.card {<br>
+background-color: white;<br>
+border-radius: 12px;<br>
+padding: 20px;<br>
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);<br>
+text-align: center;<br>
+}</p>
+
+<p>.card h2 {<br>
+margin-top: 0;<br>
+font-size: 1.2rem;<br>
+}</p>
+
+<p>.card p {<br>
+margin: 8px 0;<br>
+}</p>
+
+<h3>Day 2 Teaching Notes</h3>
+
+<p>Day 2 should focus on appearance and layout, not on adding lots of new weather data. Students should take the working content from Day 1 and improve how it looks. This reinforces the idea that content and presentation are two different parts of front-end development.</p>
+
+<h3>Homework After Day 2</h3>
+
+<ol>
+<li>Add additional weather nodes to each card, such as wind speed, precipitation, rain total, sunrise, or sunset</li>
+<li>Convert the date into a more readable format</li>
+<li>Improve the visual design of the weather cards if needed</li>
+</ol>
+
+<h2>Day 3: Displaying an Image Based on Weather Conditions</h2>
+
+<h3>Day 3 Focus</h3>
+
+<p>The goal for Day 3 is to help students understand how data can control visual output. Instead of only showing text such as date, high temperature, and low temperature, students will also display an image that matches the weather conditions.</p>
+
+<h3>Day 3 Learning Objectives</h3>
+
+<ul>
+<li>Read a weather condition value from the API response</li>
+<li>Use conditional logic in JavaScript to decide which image to display</li>
+<li>Create and insert image elements dynamically</li>
+<li>Connect data values to visual design choices</li>
+<li>Continue reinforcing the idea that JavaScript controls content and CSS controls presentation</li>
+</ul>
+
+<h3>Suggested Day 3 In-Class Flow</h3>
+
+<ol>
+<li>Review the JSON structure and locate the weather condition field</li>
+<li>Explain what the weather condition values mean</li>
+<li>Create a simple system for mapping conditions to image filenames</li>
+<li>Use JavaScript to create an &lt;img&gt; element for each card</li>
+<li>Set the image source based on the weather condition</li>
+<li>Append the image to the weather card</li>
+<li>Style the images with CSS so they fit neatly into the card layout</li>
+</ol>
+
+<h3>Day 3 JavaScript Update</h3>
+
+<p>Make sure the daily weather code is included in the API request.</p>
+
+<p>const apiUrl = “https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto&temperature_unit=fahrenheit”;</p>
+
+<p>Then read the weather code array:</p>
+
+<p>const weatherCodes = data.daily.weather_code;</p>
+
+<p>Add image selection logic:</p>
+
+<p>let imageFile = “images/cloudy.png”;<br>
+<br>
+if (weatherCodes[i] === 0) {<br>
+imageFile = “images/sunny.png”;<br>
+} else if (weatherCodes[i] === 1 || weatherCodes[i] === 2 || weatherCodes[i] === 3) {<br>
+imageFile = “images/cloudy.png”;<br>
+} else if (weatherCodes[i] === 61 || weatherCodes[i] === 63 || weatherCodes[i] === 65) {<br>
+imageFile = “images/rainy.png”;<br>
+} else if (weatherCodes[i] === 71 || weatherCodes[i] === 73 || weatherCodes[i] === 75) {<br>
+imageFile = “images/snowy.png”;<br>
+}</p>
+
+<p>Create and append the image:</p>
+
+<p>const weatherImage = document.createElement(“img”);<br>
+weatherImage.src = imageFile;<br>
+weatherImage.alt = “Weather icon”;<br>
+weatherImage.classList.add(“weather-image”);<br>
+<br>
+card.appendChild(weatherImage);</p>
+
+<h3>Day 3 CSS Update</h3>
+
+<p>Add this to weather-styles.css:</p>
+
+<p>.weather-image {<br>
+width: 80px;<br>
+height: 80px;<br>
+object-fit: contain;<br>
+margin: 10px auto;<br>
+display: block;<br>
+}</p>
+
+<h3>Day 3 Teaching Notes</h3>
+
+<p>This is a good place to explain that APIs often return condition codes instead of plain English descriptions. Students may need to translate a weather code into a meaningful category such as sunny, cloudy, or rainy before choosing an image.</p>
+
+<h2>Day 4: Displaying Wind Icons Using Conditional Logic</h2>
+
+<h3>Day 4 Focus</h3>
+
+<p>The goal for Day 4 is to help students understand how numeric data can drive different visual outcomes. Instead of matching exact values, students will evaluate ranges of values and display different icons based on those ranges.</p>
+
+<h3>Day 4 Learning Objectives</h3>
+
+<ul>
+<li>Use greater than (&gt;) and less than (&lt;) operators in JavaScript</li>
+<li>Apply conditional logic to numeric data</li>
+<li>Create different outputs based on value ranges</li>
+<li>Reinforce how data controls visual presentation</li>
+<li>Combine multiple dynamic elements within a single card</li>
+</ul>
+
+<h3>Example Wind Categories</h3>
+
+<ul>
+<li>Calm: less than 5 mph</li>
+<li>Light wind: 5 to 10 mph</li>
+<li>Moderate wind: 10 to 20 mph</li>
+<li>Strong wind: greater than 20 mph</li>
+</ul>
+
+<h3>Day 4 In-Class Flow</h3>
+
+<ol>
+<li>Review how wind data is retrieved from the API</li>
+<li>Display the wind speed value in each card</li>
+<li>Introduce greater than and less than operators</li>
+<li>Build a conditional structure to categorize wind speeds</li>
+<li>Assign an image file based on the category</li>
+<li>Create and append the wind icon to the card</li>
+<li>Style the icon with CSS</li>
+</ol>
+
+<h3>Day 4 JavaScript Update</h3>
+
+<p>Read wind speed data:</p>
+
+<p>const maxWinds = data.daily.wind_speed_10m_max;</p>
+
+<p>Create wind logic using comparisons:</p>
+
+<p>let windImageFile = “images/wind-light.png”;<br>
+<br>
+if (maxWinds[i] &lt; 5) {<br>
+windImageFile = “images/wind-calm.png”;<br>
+} else if (maxWinds[i] &lt; 10) {<br>
+windImageFile = “images/wind-light.png”;<br>
+} else if (maxWinds[i] &lt; 20) {<br>
+windImageFile = “images/wind-moderate.png”;<br>
+} else {<br>
+windImageFile = “images/wind-strong.png”;<br>
+}</p>
+
+<p>Create and append the wind icon:</p>
+
+<p>const windIcon = document.createElement(“img”);<br>
+windIcon.src = windImageFile;<br>
+windIcon.alt = “Wind strength icon”;<br>
+windIcon.classList.add(“wind-icon”);<br>
+<br>
+card.appendChild(windIcon);</p>
+
+<h3>Day 4 CSS Update</h3>
+
+<p>Add this to weather-styles.css:</p>
+
+<p>.wind-icon {<br>
+width: 60px;<br>
+height: 60px;<br>
+display: block;<br>
+margin: 10px auto;<br>
+}</p>
+
+<h3>Day 4 Teaching Notes</h3>
+
+<p>This lesson introduces a more advanced concept than Day 3 because it uses ranges rather than exact matches. It is a good opportunity to stress that the order of conditions matters in if and else if statements.</p>
+
+<h2>Four-Day Project Summary</h2>
+
+<ul>
+<li>Day 1: Learn JSON, inspect the API response, and get the weather data working in weather-script.js</li>
+<li>Day 2: Style the weather cards with weather-styles.css</li>
+<li>Day 3: Display weather condition images using JavaScript and an images folder</li>
+<li>Day 4: Use comparison logic to display wind strength icons</li>
+</ul>
+
+<p>This four-day structure works well because students move from understanding data, to displaying data, to styling data, and then to using data to control visual design decisions in increasingly sophisticated ways.</p>

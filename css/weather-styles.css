@@ -1,0 +1,47 @@
+body{
+font-family: Arial, sans-serif;
+margin-right:50px;
+padding: 25px;
+background-color: #484848;
+color: #535151;
+background-image: url("/assets/fair-weather.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+
+h1 {
+text-align: left;
+margin-bottom: 30px;
+color:rgb(238, 233, 233);
+}
+
+h2 {
+text-align: left;
+margin-bottom: 5px;
+color:rgb(64, 0, 255);
+}
+
+p {color:rgb(255, 255, 255);
+font-size:18px;}
+
+.card{
+border:1px solid rgb(232, 223, 223);
+padding:10px 10px 10px 20px;
+box-shadow: 5px 5px 5px #181f22;
+background-color:rgb(240, 240, 240);
+width:90%;
+border-radius:20px;
+}
+
+.card p {color:green;
+font-size:16px;}
+
+#weather-container {background-color:rgba(0, 0, 0, 0.248);
+
+padding:20px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap:25px;
+width:100%;
+}
