@@ -6,15 +6,15 @@
 
 <title>Site page template</title>
 
-<link rel="stylesheet" href="css/styles.css" /> 
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
 <style>
-  .hero-image
-{background-image: url("/assets/italy1.png");
-}
+  label {color:black;}
 </style>
+<link rel="stylesheet" href="/css/styles.css" /> 
 
-<script src="js/includes.js" defer></script>
+<script src="/js/includes.js" defer></script>
 
 </head>
 
@@ -31,16 +31,14 @@
     
 
 </div>
-<main class="container"; min-height:500px; color:black;">
-
-<style>label {color:black;}</style>
+<main class="container" style="min-height:500px; color:black;">
 
  <form action="https://formspree.io/f/xqayjrnd" method="POST" id="contact-form">
 
-<label for="first name">First name</label>
+<label for="first-name">First name</label>
     <input type="text" id="first-name" name="first-name" placeholder="first name" >
 
-<label for="last name">Last name</label>
+<label for="last-name">Last name</label>
   <input type="text" id="last-name" name="last-name" placeholder="last name"  >
 
 <label for="email">Email</label>
@@ -48,9 +46,9 @@
   >
 
 <label for="phone">Phone</label>
-   <input type="tel" id="phone" name="phone" 123-446-7890 form" placeholder="123-446-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+   <input type="tel" id="phone" name="phone" placeholder="123-446-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
 
-<label for="messge">Message</label>
+<label for="message">Message</label>
 <textarea id="message" name="message" rows="8" cols="60" placeholder="Type your message here"></textarea>
 
 

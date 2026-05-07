@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Tab Menu</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tabs-container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .tabs-nav {
+            display: flex;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 20px 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .tab-btn.active {
+            color: #4a90e2;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #4a90e2;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .tab-content p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs-container">
+        <!-- Tab Navigation -->
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="openTab(event, 'tab1')">Tab One</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab2')">Tab Two</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab3')">Tab Three</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab4')">Tab Four</button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div id="tab1" class="tab-content active">
+            <h2>Content for Tab One</h2>
+            <p>This is the content for the first tab. You can put anything you like here such as text, images, forms, or other elements.</p>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <h2>Content for Tab Two</h2>
+            <p>Welcome to the second tab. The smooth transition makes navigating between these sections feel natural and responsive.</p>
+        </div>
+
+        <div id="tab3" class="tab-content">
+            <h2>Content for Tab Three</h2>
+            <p>Here is the third tab's content. Tabbed interfaces are great for organizing related information into manageable chunks.</p>
+        </div>
+
+        <div id="tab4" class="tab-content">
+            <h2>Content for Tab Four</h2>
+            <p>Finally, this is the fourth tab. You can easily extend this pattern by adding more buttons and content sections to your HTML.</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Get all elements with class="tab-content" and hide them
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // Get all elements with class="tab-btn" and remove the class "active"
+            const tabBtns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("active");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>

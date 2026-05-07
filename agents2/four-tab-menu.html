@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Four Tab Menu - agents2</title>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0; padding: 0;
+    background: #f5f7fa;
+    display: flex; justify-content: center; align-items: center; height: 100vh;
+  }
+  .tab-menu {
+    display: flex;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .tab {
+    flex: 1;
+    padding: 1rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    font-weight: 600;
+    color: #555;
+  }
+  .tab:hover {
+    background: #e0e7ff;
+    color: #2c3e50;
+  }
+  .tab.active {
+    background: #2c3e50;
+    color: #fff;
+  }
+  .content {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+<div class="tab-menu" id="menu">
+  <div class="tab active" data-index="0">Home</div>
+  <div class="tab" data-index="1">About</div>
+  <div class="tab" data-index="2">Services</div>
+  <div class="tab" data-index="3">Contact</div>
+</div>
+<div class="content" id="content">Welcome to the Home tab.</div>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const content = document.getElementById('content');
+  const messages = [
+    'Welcome to the Home tab.',
+    'Learn more about us on the About tab.',
+    'Our Services are listed here.',
+    'Get in touch via the Contact tab.'
+  ];
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const idx = parseInt(tab.dataset.index, 10);
+      content.textContent = messages[idx];
+    });
+  });
+</script>
+</body>
+</html>

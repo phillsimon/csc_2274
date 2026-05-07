@@ -1,4 +1,4 @@
-body{ font-family: Garamond;
+body{ font-family: Garamond, "Times New Roman", serif;
   background-color:rgb(0, 0, 0);
   margin:0px;
 } 
@@ -10,7 +10,7 @@ body{ font-family: Garamond;
 /* navigation and header styles */
 
 a.logo {color:white;
-text-decoration-line:;
+text-decoration-line:none;
 text-transform: uppercase;
 font-family:Oswald;
 font-weight: 900;
@@ -61,13 +61,8 @@ background-color:rgb(71, 49, 102);
 display:none;}
 
 ul.nav-list li a:hover{ 
-background-color:rgb(143, 34, 34);
-border-radius:20px;}
-
-ul.nav-list li a:hover{ 
 background-color:rgb(83, 20, 50);
 border-radius:20px;
-width:25%;
 color:white;}
 
 
@@ -96,9 +91,7 @@ margin-top:10vh;
 .hero-image h1{
 color: white;
 font-size: 50px;
-width:100%;
 z-index: 1;
-padding:20px;
 background-color: rgba(0, 0, 0,0.7);
 margin-bottom: 0;
 text-transform: uppercase;
@@ -137,7 +130,7 @@ main.container
 .body-list li{
   
   font-family:Tahoma;
-  color:color:rgb(185, 185, 185)}
+  color:rgb(185, 185, 185)}
 
 /* flex and grid styles for cards */
 
@@ -167,6 +160,7 @@ main.container
     object-fit: cover;
 }
 
+.card h3,
 .card h4 {
 color:white;
  margin: 12px 0 6px;
@@ -178,14 +172,25 @@ color:white;
 font-size:14px
 
  }
-.card button {
+.card button,
+.card .button {
  margin-top: 7px;
  padding: 10px 12px;
  border: 0;
  border-radius: 8px;
  cursor: pointer;
  font-family: Georgia, serif;
+ display: inline-block;
+ background-color: #D1B084;
+ color: rgb(14, 3, 3);
+ font-weight: bold;
+ text-decoration-line: none;
 
+}
+
+.card .button:hover {
+ background-color: #5c462a;
+ color: rgb(225, 225, 225);
 }
 
 .grid-demo {
@@ -199,7 +204,6 @@ font-size:14px
   background: rgb(131, 74, 74);
   border: 2px dotted green;
   color: white;
-  flex: 0 0 250px;   
   box-sizing: border-box;
   padding:15px;
 }
@@ -320,15 +324,15 @@ border-width:3px;}
 
 /* --- X state: when checkbox is checked --- */
 
-#nav-toggle:checked ~ .hamburger span:nth-child(2) {
+#nav-toggle:checked ~ .hamburger span:nth-child(1) {
     transform: translateY(9.5px) rotate(45deg);
 }
 
-#nav-toggle:checked ~ .hamburger span:nth-child(3) {
+#nav-toggle:checked ~ .hamburger span:nth-child(2) {
     transform: scaleX(0);
 }
 
-#nav-toggle:checked ~ .hamburger span:nth-child(4) {
+#nav-toggle:checked ~ .hamburger span:nth-child(3) {
     transform: translateY(-9.5px) rotate(-45deg);
 }
 
@@ -349,7 +353,7 @@ border-width:3px;}
     width:100%;
     padding:20px 20px 20px 10%;
     background-color: rgba(0, 0, 0,0.7);
-    argin-bottom: 0;
+    margin-bottom: 0;
     font-weight: 900;
   }
 
@@ -372,9 +376,9 @@ border-width:3px;}
 
     /* Stack header items */
     .header-container {
-       flex-direction: row;
+        flex-direction: row;
         flex-wrap: wrap;
-        align-items: right;
+        align-items: flex-start;
         padding-bottom: 10px; 
     }
 
@@ -403,7 +407,6 @@ border-width:3px;}
     ul.nav-list li a:hover{ 
     background-color:rgb(83, 20, 50);
     border-radius:20px;
-    width:25%;
     color:white;}
 
     

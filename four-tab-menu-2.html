@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Tab Menu - Style 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 60px 20px;
+        }
+
+        .tabs-wrapper {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .tabs-nav {
+            display: flex;
+            gap: 6px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 14px 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px 12px 0 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-btn:hover {
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 -4px 15px rgba(99, 140, 255, 0.2);
+        }
+
+        .tab-panel {
+            display: none;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 16px 16px;
+            padding: 35px;
+            animation: slideUp 0.35s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        .tab-panel h2 {
+            color: #e0e0ff;
+            font-size: 22px;
+            margin-bottom: 14px;
+        }
+
+        .tab-panel p {
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs-wrapper">
+        <!-- Tab Buttons -->
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab(event, 'panel1')">Tab One</button>
+            <button class="tab-btn" onclick="switchTab(event, 'panel2')">Tab Two</button>
+            <button class="tab-btn" onclick="switchTab(event, 'panel3')">Tab Three</button>
+            <button class="tab-btn" onclick="switchTab(event, 'panel4')">Tab Four</button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div id="panel1" class="tab-panel active">
+            <h2>Tab One</h2>
+            <p>This is the content area for the first tab. Replace this placeholder text with your own content — text, images, lists, or anything else you need.</p>
+        </div>
+
+        <div id="panel2" class="tab-panel">
+            <h2>Tab Two</h2>
+            <p>Welcome to the second tab. Each panel smoothly animates into view when you click its corresponding button above.</p>
+        </div>
+
+        <div id="panel3" class="tab-panel">
+            <h2>Tab Three</h2>
+            <p>Here is the third tab. The glassmorphism-style design gives a modern, layered look that works well on dark backgrounds.</p>
+        </div>
+
+        <div id="panel4" class="tab-panel">
+            <h2>Tab Four</h2>
+            <p>And finally the fourth tab. You can customize the colors, fonts, and layout to match the rest of your project.</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(evt, panelId) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected panel and activate button
+            document.getElementById(panelId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

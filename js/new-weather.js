@@ -1,8 +1,6 @@
-
 const weatherContainer = document.getElementById("weather-container");
 
-const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=41.34&longitude=-73.03&daily=temperature_2m_max,temperature_2m_min,uv_index_max,wind_speed_10m_max&timezone=America%2FNew_York&wind_speed_unit=mph&temperature_unit=fahrenheit&daily=weather_code";
-
+const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=41.34&longitude=-73.03&daily=temperature_2m_max,temperature_2m_min,uv_index_max,wind_speed_10m_max,winddirection_10m_dominant,weather_code&timezone=America%2FNew_York&wind_speed_unit=mph&temperature_unit=fahrenheit";
 
 fetch(apiUrl)
   .then(response => response.json())
@@ -13,16 +11,17 @@ fetch(apiUrl)
     const maxWinds = data.daily.wind_speed_10m_max;
     const weatherCodes = data.daily.weather_code;
     const uvIndexes = data.daily.uv_index_max;
+    const windDirections = data.daily.uv_index_max;
 
     for (let i = 0; i < 7; i++) {
 
-
+      // Outer card — holds the background image
       const card = document.createElement("div");
       card.classList.add("card");
 
+      // Inner container — holds all the text content
       const inner = document.createElement("div");
-     
-      card.classList.add("inner");
+      inner.classList.add("card-inner");
 
       const date = document.createElement("h2");
       date.textContent = dates[i];
@@ -40,67 +39,46 @@ fetch(apiUrl)
       weatherCode.textContent = "Weather code: " + weatherCodes[i];
 
       const uvIndex = document.createElement("p");
-      uvIndex.textContent = "UV code: " + uvIndexes[i];
+      uvIndex.textContent = "UV index: " + uvIndexes[i];
 
-    /* conditions logic */
-      let imageFile = "/assets/sunny.jpg";
-    
-       if (weatherCodes[i] >= 0 && weatherCodes[i] <= 1 ) {
+      const windDirection = document.createElement("p");
+      windDirection.textContent = "Wind direction " + windDirections[i];
+
+      /* Weather image logic — sets background on the card */
+      let imageFile = "assets/sunny.jpg";
+
+      if (weatherCodes[i] >= 0 && weatherCodes[i] <= 1) {
         imageFile = "assets/sunny.jpg";
-
-      } else if (weatherCodes[i] >= 50 && weatherCodes[i] <= 69 ) {
+      } else if (weatherCodes[i] >= 50 && weatherCodes[i] <= 69) {
         imageFile = "assets/rain.jpg";
-        
       } else if (weatherCodes[i] === 71 || weatherCodes[i] === 73 || weatherCodes[i] === 75) {
         imageFile = "assets/snow.jpg";
+      } else if (weatherCodes[i] >= 40 && weatherCodes[i] <= 49) {
+        imageFile = "assets/fog.jpg";
       }
-      else if (weatherCodes[i] >= 40 && weatherCodes[i] <= 49 ) {
-        imageFile = "assets/fog.jpg";}
 
-         /* wind speed logic */
+      // Apply image as card background instead of an <img> element
+      card.style.backgroundImage = `url('${imageFile}')`;
+      card.style.backgroundSize = "cover";
+      card.style.backgroundPosition = "center";
 
-     let windimageFile = "/assets/light.png";
-    
-       if (maxWinds[i] < 10 ) {
-        windimageFile = "assets/light.png";
+      /* Wind icon logic */
+      let windImageFile = "assets/light.png";
 
-      } else if (maxWinds[i] < 20 ) {
-        windimageFile = "assets/light.png";
-        
-      } else if (weatherCodes[i] === 71 || weatherCodes[i] === 73 || weatherCodes[i] === 75) {
-        imageFile = "assets/snow.jpg";
-      }
-      else if (weatherCodes[i] >= 40 && weatherCodes[i] <= 49 ) {
-        imageFile = "assets/fog.jpg";}
+      if (maxWinds[i] < 10) {
+        windImageFile = "assets/light.png";
+      } else if (maxWinds[i] < 20) {
+        windImageFile = "assets/moderate.png";
+      } else if (maxWinds[i] < 40) {
+        windImageFile = "assets/strong.png";
+      } else {  windImageFile = "assets/wind-strong.png";}
 
-
-
-        /* Wind icon logic */
-      
-
-
-     let windImageFile = "/assets/light.png";
-    
-       if (maxWinds[i] < 10 ) {windImageFile = "/assets/light.png";}
-
-       else if (maxWinds[i] < 20 ) {windImageFile = "/assets/moderate.png";}
-        
-       else if (maxWinds[i] < 40 ) {windImageFile = "/assets/verystrong.png";}
-      
-       else { windImageFile = "/assets/light.png";}   
-
-
-const weatherImage = document.createElement("img");
-      weatherImage.src = imageFile;
-      weatherImage.alt = "Weather icon";
-      weatherImage.classList.add("weather-image");
-
-     const windIcon = document.createElement("img");
+      const windIcon = document.createElement("img");
       windIcon.src = windImageFile;
       windIcon.alt = "Wind strength icon";
       windIcon.classList.add("wind-icon");
 
-     
+      // Append all content to inner, not card
       inner.appendChild(date);
       inner.appendChild(maxTemp);
       inner.appendChild(minTemp);
@@ -109,9 +87,9 @@ const weatherImage = document.createElement("img");
       inner.appendChild(weatherCode);
       inner.appendChild(windIcon);
 
+      // Inner goes into card, card goes into container
       card.appendChild(inner);
       weatherContainer.appendChild(card);
-      
     }
   })
   .catch(error => {
